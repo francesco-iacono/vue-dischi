@@ -11,6 +11,10 @@ var app = new Vue({
   el: '#app',
   data: {
     discs: [],
+    genres: [
+      'All'
+    ],
+    valueGenre: 'All'
   },
   methods: {
 
@@ -20,7 +24,12 @@ var app = new Vue({
         .get('https://flynn.boolean.careers/exercises/api/array/music')
         .then( (result) => {
           this.discs = result.data.response;
-          console.log(this.discs);
+          this.discs.forEach((item, i) => {
+            if (!this.genres.includes(item.genre)) {
+                this.genres.push(item.genre);
+            }
+          }
+        );
        }
     );
   }

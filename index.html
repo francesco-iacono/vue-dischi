@@ -19,10 +19,23 @@
         <div class="header-logo">
           <img src="img/spotify-logo-white.png" alt="">
         </div>
+        <div class="select">
+          <form action="/action_page.php">
+            <!-- <input type="text" value="">
+            <br><br> -->
+            <label for="cars">Scegli per genere:</label>
+            <select v-model="valueGenre" name="genres" id="genres">
+              <option
+              v-for="genre in genres"
+              :value="genre"
+              > {{ genre }} </option>
+            </select>
+          </form>
+        </div>
       </header>
       <main>
         <div class="discs-container">
-          <div v-for="disc in discs" class="box-cd">
+          <div v-if v-for="disc in discs" class="box-cd">
             <img :src="disc.poster" :alt="disc.title">
             <h4>{{ disc.title }}</h4>
             <div class="info-cd">
