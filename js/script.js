@@ -17,7 +17,9 @@ var app = new Vue({
     valueGenre: 'All'
   },
   methods: {
-
+    getGenre: function () {
+      console.log(this.valueGenre);
+    }
   },
   mounted: function () {
       axios
